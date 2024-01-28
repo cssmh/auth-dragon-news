@@ -3,6 +3,12 @@ import { FaGithub } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
+import q1 from "../../assets/qZone1.png"
+import q2 from "../../assets/qZone2.png"
+import q3 from "../../assets/qZone3.png"
+
 const RightCategory = () => {
   return (
     <div>
@@ -19,9 +25,30 @@ const RightCategory = () => {
       </div>
       <div>
         <h1 className="font-semibold text-xl mb-3">Follow us on</h1>
-        <p className="pl-3 py-2 flex items-center gap-1 border border-gray-300 rounded-t-lg"> <FaFacebook /> Facebook</p>
-        <p className="pl-3 py-2 flex items-center gap-1 border-x border-gray-300"> <FaTwitter /> Twitter</p>
-        <p className="pl-3 py-2 flex items-center gap-1 border border-gray-300 rounded-b-lg"> <FaInstagram /> Instagram</p>
+        <Link to={"/"}>
+          <p className="pl-3 py-2 flex items-center gap-1 border border-gray-300 rounded-t-lg">
+            {" "}
+            <FaFacebook /> Facebook
+          </p>
+        </Link>
+        <Link to={"/"}>
+          <p className="pl-3 py-2 flex items-center gap-1 border-x border-gray-300">
+            {" "}
+            <FaTwitter /> Twitter
+          </p>
+        </Link>
+        <Link to={"/"}>
+          <p className="pl-3 py-2 flex items-center gap-1 border border-gray-300 rounded-b-lg">
+            {" "}
+            <FaInstagram /> Instagram
+          </p>
+        </Link>
+      </div>
+      <div className="my-4 bg-[#F3F3F3]">
+        <h1 className="text-xl pl-4 py-3">Q-Zone</h1>
+        <img className="mx-auto" src={q1} alt="" />
+        <img className="mx-auto" src={q2} alt="" />
+        <img className="mx-auto" src={q3} alt="" />
       </div>
     </div>
   );
