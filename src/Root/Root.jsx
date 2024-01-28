@@ -10,24 +10,24 @@ const Root = createBrowserRouter([
     path: "/",
     element: <MainLayout></MainLayout>,
     children: [
-        {
-            path: "/",
-            element: <Home></Home>,
-        },
-        {
-            path: "/news/:id",
-            element: <News></News>,
-            loader: ()=> fetch("/news.json")
-        },
-        {
-            path: "/login",
-            element: <Login></Login>,
-        },
-        {
-            path: "/register",
-            element: <Register></Register>
-        },
-    ]
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/news/:id",
+        element: <News></News>,
+        loader: () => fetch("/news.json"),
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
+  },
+  {
+    path: "/register",
+    element: <Register></Register>,
   },
 ]);
 

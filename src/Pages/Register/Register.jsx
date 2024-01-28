@@ -1,9 +1,11 @@
+import Navbar from "../../HomeLayout/Navbar/Navbar";
+
 const Register = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <div>
+      <Navbar></Navbar>
+    </div>
+  );
 };
 
 export default Register;
