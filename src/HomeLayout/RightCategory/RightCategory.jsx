@@ -16,12 +16,22 @@ import toast, { Toaster } from "react-hot-toast";
 
 const RightCategory = () => {
 
-  const { googlePopupLogin } = useContext(AuthContext)
+  const { googlePopupLogin, githubPopupLogin } = useContext(AuthContext)
   const handlePopupGoogleLogin = () => {
     googlePopupLogin()
     .then(res => {
       console.log(res.user);
       toast.success("Success google login")
+    })
+    .catch(err => {
+      toast.error(err.message)
+    })
+  }
+  const handlePopupGithubLogin = () => {
+    githubPopupLogin()
+    .then(res => {
+      console.log(res.user);
+      toast.success("Success github login")
     })
     .catch(err => {
       toast.error(err.message)
@@ -35,7 +45,7 @@ const RightCategory = () => {
           {" "}
           <FaGoogle /> Login with Google
         </button>
-        <button className="flex justify-center items-center text-black gap-1 border p-2 border-black w-full text-center rounded-md">
+        <button onClick={handlePopupGithubLogin} className="flex justify-center items-center text-black gap-1 border p-2 border-black w-full text-center rounded-md">
           {" "}
           <FaGithub /> Login with Github
         </button>
