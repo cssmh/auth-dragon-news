@@ -2,15 +2,23 @@ import { Link } from "react-router-dom";
 import Navbar from "../../HomeLayout/Navbar/Navbar";
 
 const Login = () => {
+
+    const handleLogin = e => {
+        e.preventDefault()
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password);
+    }
+
   return (
     <div className="bg-[#F3F3F3]">
       <Navbar></Navbar>
       <div className="hero min-h-[88vh]">
         <div className="card shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-          <h1 className="text-2xl text-center pt-7 font-semibold">
+          <h1 className="text-2xl text-center pt-7 font-semibold border-b pb-6 mx-8">
             Login your account
           </h1>
-          <form className="card-body py-4">
+          <form onSubmit={handleLogin} className="card-body py-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-semibold">Email address</span>
@@ -43,7 +51,7 @@ const Login = () => {
                 </a>
               </label>
             </div>
-            <div className="form-control mt-6">
+            <div className="form-control mt-3">
               <button className="btn bg-[#403F3F] hover:bg-[#403F3F] text-white font-semibold">
                 Login
               </button>
