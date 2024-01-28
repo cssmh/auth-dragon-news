@@ -40,32 +40,32 @@ const RightCategory = () => {
   return (
     <div>
       <div className="mb-5">
-        <h1 className="font-semibold text-xl mb-3">Login With</h1>
-        <button onClick={handlePopupGoogleLogin} className="flex justify-center items-center text-blue-600 gap-1 border p-2 border-blue-500 w-full text-center rounded-md mb-2">
+        <h1 className="font-semibold text-xl mb-3 mx-3 lg:mx-0">Login With</h1>
+        <button onClick={handlePopupGoogleLogin} className="flex justify-center items-center text-blue-600 gap-1 border p-2 border-blue-500 w-4/5 mx-auto lg:w-full text-center rounded-md mb-2">
           {" "}
           <FaGoogle /> Login with Google
         </button>
-        <button onClick={handlePopupGithubLogin} className="flex justify-center items-center text-black gap-1 border p-2 border-black w-full text-center rounded-md">
+        <button onClick={handlePopupGithubLogin} className="flex justify-center items-center text-black gap-1 border p-2 border-black w-4/5 mx-auto lg:w-full text-center rounded-md">
           {" "}
           <FaGithub /> Login with Github
         </button>
       </div>
       <div>
-        <h1 className="font-semibold text-xl mb-3">Follow us on</h1>
+        <h1 className="font-semibold text-xl mb-3 mx-3 lg:mx-0">Follow us on</h1>
         <Link to={"/"}>
-          <p className="pl-3 py-2 flex items-center gap-1 border border-gray-300 rounded-t-lg">
+          <p className="pl-3 py-2 flex items-center gap-1 border border-gray-300 rounded-t-lg mx-3 lg:mx-0">
             {" "}
             <FaFacebook /> Facebook
           </p>
         </Link>
         <Link to={"/"}>
-          <p className="pl-3 py-2 flex items-center gap-1 border-x border-gray-300">
+          <p className="pl-3 py-2 flex items-center gap-1 border-x border-gray-300 mx-3 lg:mx-0">
             {" "}
             <FaTwitter /> Twitter
           </p>
         </Link>
         <Link to={"/"}>
-          <p className="pl-3 py-2 flex items-center gap-1 border border-gray-300 rounded-b-lg">
+          <p className="pl-3 py-2 flex items-center gap-1 border border-gray-300 rounded-b-lg mx-3 lg:mx-0">
             {" "}
             <FaInstagram /> Instagram
           </p>
