@@ -10,13 +10,28 @@ import q2 from "../../assets/qZone2.png";
 import q3 from "../../assets/qZone3.png";
 
 import bg from "../../assets/bg1.png";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const RightCategory = () => {
+
+  const { googlePopupLogin } = useContext(AuthContext)
+  const handlePopupGoogleLogin = () => {
+    googlePopupLogin()
+    .then(res => {
+      console.log(res.user);
+      toast.success("Success google login")
+    })
+    .catch(err => {
+      toast.error(err.message)
+    })
+  }
   return (
     <div>
       <div className="mb-5">
         <h1 className="font-semibold text-xl mb-3">Login With</h1>
-        <button className="flex justify-center items-center text-blue-600 gap-1 border p-2 border-blue-500 w-full text-center rounded-md mb-2">
+        <button onClick={handlePopupGoogleLogin} className="flex justify-center items-center text-blue-600 gap-1 border p-2 border-blue-500 w-full text-center rounded-md mb-2">
           {" "}
           <FaGoogle /> Login with Google
         </button>
@@ -73,7 +88,8 @@ const RightCategory = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>  
+      <Toaster/>
     </div>
   );
 };

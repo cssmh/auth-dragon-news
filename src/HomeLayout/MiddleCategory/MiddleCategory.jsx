@@ -16,8 +16,8 @@ const MiddleCategory = () => {
         This Category News {allData.length}
       </h1>
       <div className="space-y-5">
-        {allData.slice(0, 10).map((data, idx) => (
-          <Card key={idx} getData={data}></Card>
+        {allData.slice(0, 10).map(data => (
+          <Card key={data._id} getData={data}></Card>
         ))}
       </div>
     </div>

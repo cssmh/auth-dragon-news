@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../HomeLayout/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
   const {createUser, updateNamePhoto} = useContext(AuthContext)
+  const navigateTo = useNavigate()
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -34,6 +35,7 @@ const Register = () => {
       .catch(err=> [
         toast.error(err.message)
       ])
+      navigateTo("/")
     })
     .catch(err => {
       toast.error(err.message)
