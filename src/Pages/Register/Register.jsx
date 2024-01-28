@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../HomeLayout/Navbar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
+  const {createUser, updateNamePhoto} = useContext(AuthContext)
+
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -9,7 +14,30 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const checked = e.target.terms.checked
-    console.log(name, photo, email, password, checked);
+    
+    if(password.length < 6){
+      toast.error("Password must 6 character or more")
+      return
+    }else if(!checked){
+      toast.error("Accept terms & condition")
+      return
+    }
+
+    createUser(email, password)
+    .then(res=> {
+      toast.success("success reg")
+      console.log(res.user);
+      updateNamePhoto(name, photo)
+      .then(()=> {
+        toast.success("updated name, photo")
+      })
+      .catch(err=> [
+        toast.error(err.message)
+      ])
+    })
+    .catch(err => {
+      toast.error(err.message)
+    })
   };
   return (
     <div>
@@ -86,6 +114,7 @@ const Register = () => {
               </Link>
             </p>
           </div>
+          <Toaster/>
         </div>
       </div>
     </div>
