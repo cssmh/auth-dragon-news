@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../HomeLayout/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -8,6 +8,8 @@ const Login = () => {
 
     const {loginUser} = useContext(AuthContext)
     const navigateTo = useNavigate()
+    const location = useLocation()
+    console.log(location.state);
 
     const handleLogin = e => {
         e.preventDefault()
@@ -18,7 +20,7 @@ const Login = () => {
         .then(res => {
             console.log(res.user);
             toast.success("logged in success")
-            navigateTo("/")
+            navigateTo(location.state ? location.state : "/")
         })
         .catch(err => {
             toast.error(err.message)

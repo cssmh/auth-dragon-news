@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Logo from "../../HomeLayout/Logo/Logo";
 import Navbar from "../../HomeLayout/Navbar/Navbar";
 import RightCategory from "../../HomeLayout/RightCategory/RightCategory";
@@ -21,6 +21,11 @@ const News = () => {
 
   const { image_url, title, details } = card;
 
+  const navigateTo = useNavigate()
+  const navigateBack = () => {
+    navigateTo(-1)
+  }
+
   return (
     <div>
       <Logo></Logo>
@@ -32,11 +37,9 @@ const News = () => {
             <img src={image_url} alt="" />
             <p className="py-3 font-semibold text-xl">{title}</p>
             <p className="text-gray-500">{details}</p>
-            <Link to={"/"}>
-              <button className="btn bg-red-600 text-white my-5">
+              <button onClick={navigateBack} className="btn bg-red-600 text-white my-5">
                 All news in this category
               </button>
-            </Link>
             <div className="flex gap-3">
               <div className="space-y-2">
                 <img src={one} alt="" />
