@@ -1,7 +1,15 @@
-import navPhoto from "../../assets/user.png"
+import { useContext } from "react";
+import navPhoto from "../../assets/user.png";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut().then().catch();
+  };
+
   const allNavbar = (
     <>
       <li>
@@ -48,12 +56,24 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{allNavbar}</ul>
       </div>
       <div className="navbar-end gap-2">
+        {user && <p>Hi, {user?.displayName}</p>}
         <div className="avatar">
           <div className="w-11 rounded-full">
-            <img src={navPhoto} />
+            <img src={user ? user.photoURL : navPhoto} />
           </div>
         </div>
-        <Link className="bg-[#403F3F] text-white px-7 py-2" to={"/login"}>Login</Link>
+        {user ? (
+          <button
+            onClick={handleLogout}
+            className="bg-[#403F3F] text-white px-7 py-2"
+          >
+            Logout
+          </button>
+        ) : (
+          <Link className="bg-[#403F3F] text-white px-7 py-2" to={"/login"}>
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
