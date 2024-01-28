@@ -2,8 +2,9 @@ import { FaRegEye } from "react-icons/fa";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 const Card = ({ getData }) => {
-    // console.log(getData);
-  const { author, title, image_url, details, rating, total_view, _id } = getData;
+  // console.log(getData);
+  const { author, title, image_url, details, rating, total_view, _id } =
+    getData;
   return (
     <div className="border border-gray-300 rounded-lg">
       <div className="flex items-center gap-2 p-3 bg-gray-100">
@@ -19,7 +20,11 @@ const Card = ({ getData }) => {
         <div className="my-3 text-sm text-gray-500">
           {details.length > 200 ? (
             <p>
-              {details.slice(0, 200)} <Link to={`/news/${_id}`} className="text-blue-500"> Read more</Link>{" "}
+              {details.slice(0, 200)}{" "}
+              <Link to={`/news/${_id}`} className="text-blue-500">
+                {" "}
+                Read more
+              </Link>{" "}
             </p>
           ) : (
             <p>{details}</p>
