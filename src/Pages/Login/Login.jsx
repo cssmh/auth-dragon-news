@@ -1,13 +1,26 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../HomeLayout/Navbar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
+
+    const {loginUser} = useContext(AuthContext)
 
     const handleLogin = e => {
         e.preventDefault()
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password);
+
+        loginUser(email, password)
+        .then(res => {
+            console.log(res.user);
+            toast.success("logged in success")
+        })
+        .catch(err => {
+            toast.error(err.message)
+        })
     }
 
   return (
@@ -65,6 +78,7 @@ const Login = () => {
               </Link>
             </p>
           </div>
+          <Toaster/>
         </div>
       </div>
     </div>
