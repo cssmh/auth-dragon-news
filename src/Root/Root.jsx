@@ -5,6 +5,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import News from "../Pages/News/News";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import About from "../Pages/About/About";
+import Career from "../Pages/Career/Career";
 
 const Root = createBrowserRouter([
   {
@@ -14,6 +16,14 @@ const Root = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/career",
+        element: <PrivateRoute><Career></Career></PrivateRoute>,
       },
       {
         path: "/news/:id",
