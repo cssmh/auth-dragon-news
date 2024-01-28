@@ -5,9 +5,11 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import q1 from "../../assets/qZone1.png"
-import q2 from "../../assets/qZone2.png"
-import q3 from "../../assets/qZone3.png"
+import q1 from "../../assets/qZone1.png";
+import q2 from "../../assets/qZone2.png";
+import q3 from "../../assets/qZone3.png";
+
+import bg from "../../assets/bg1.png";
 
 const RightCategory = () => {
   return (
@@ -49,6 +51,28 @@ const RightCategory = () => {
         <img className="mx-auto" src={q1} alt="" />
         <img className="mx-auto" src={q2} alt="" />
         <img className="mx-auto" src={q3} alt="" />
+      </div>
+      <div>
+        <div
+          className="hero min-h-[70vh]"
+          style={{ backgroundImage: `url(${bg})` }}
+        >
+          <div className="hero-overlay bg-opacity-60"></div>
+          <div className="hero-content text-center text-neutral-content">
+            <div className="max-w-md">
+              <h1 className="mb-5 text-4xl font-bold">
+                Create an Amazing Newspaper
+              </h1>
+              <p className="mb-5">
+                Discover thousands of options, easy to customize layouts,
+                one-click to import demo and much more.
+              </p>
+              <button className="btn bg-red-600 text-white border-none">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

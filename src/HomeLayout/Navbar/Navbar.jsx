@@ -1,3 +1,4 @@
+import navPhoto from "../../assets/user.png"
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -48,8 +49,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-2">
         <div className="avatar">
-          <div className="w-10 rounded-full ring ring-primary ring-offset-base-100">
-            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <div className="w-11 rounded-full">
+            <img src={navPhoto} />
           </div>
         </div>
         <Link className="bg-[#403F3F] text-white px-7 py-2" to={"/login"}>Login</Link>
